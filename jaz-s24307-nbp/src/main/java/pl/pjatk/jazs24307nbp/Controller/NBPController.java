@@ -33,7 +33,7 @@ public class NBPController {
             @ApiResponse(responseCode = "404", description = "Currency not found",
                     content = @Content) })
     @GetMapping("/{currency}/{dateStart}/{dateEnd}")
-    public ResponseEntity<NBP> getAllMovies(@PathVariable String currency, @PathVariable String dateStart, @PathVariable String dateEnd) {
+    public ResponseEntity<NBP> getCurrencyRates(@PathVariable String currency, @PathVariable String dateStart, @PathVariable String dateEnd) {
         return nbpService.getCurrencyRates("A", currency, dateStart, dateEnd);
     }
 
