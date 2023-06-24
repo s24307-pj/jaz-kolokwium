@@ -1,18 +1,25 @@
 package pl.pjatk.jazs24307nbp.Assets;
 
-public class NBP {
-    private String table;
-    private String code;
+import io.swagger.v3.oas.annotations.media.Schema;
 
-    private long days;
+public class NBP {
+    @Schema(description = "The table needed to get currency results", example = "A",title = "Currency table")
+    private String table;
+    @Schema(description = "Currency what we looking for", example = "gbp", title = "Currency code")
+    private String code;
+    @Schema(description = "Date start provided in YYYY/MM/DD format", example = "2023-06-22", title = "Start date")
+    private String dateStart;
+    @Schema(description = "Date end provided in YYYY/MM/DD format", example = "2023-06-24", title = "Start date")
+    private String dateEnd;
 
     public NBP() {
     }
 
-    public NBP(String table, String code, long days) {
+    public NBP(String table, String code, String dateStart, String dateEnd) {
         this.table = table;
         this.code = code;
-        this.days = days;
+        this.dateStart = dateStart;
+        this.dateEnd = dateEnd;
     }
 
     public String getTable() {
@@ -31,11 +38,19 @@ public class NBP {
         this.code = code;
     }
 
-    public long getDays() {
-        return days;
+    public String getDateStart() {
+        return dateStart;
     }
 
-    public void setDays(long days) {
-        this.days = days;
+    public void setDateStart(String dateStart) {
+        this.dateStart = dateStart;
+    }
+
+    public String getDateEnd() {
+        return dateEnd;
+    }
+
+    public void setDateEnd(String dateEnd) {
+        this.dateEnd = dateEnd;
     }
 }

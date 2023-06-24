@@ -15,7 +15,7 @@ import java.util.List;
 
 @OpenAPIDefinition()
 @RestController
-@RequestMapping("/nbp")
+@RequestMapping("/exchangerates")
 public class NBPController {
     private final NBPService nbpService;
 
@@ -28,13 +28,13 @@ public class NBPController {
             @ApiResponse(responseCode = "200", description = "Found the currency rate",
                     content = { @Content(mediaType = "application/json",
                             schema = @Schema(implementation = NBP.class)) }),
-            @ApiResponse(responseCode = "400", description = "Invalid id supplied",
+            @ApiResponse(responseCode = "400", description = "Invalid currency or date supplied",
                     content = @Content),
             @ApiResponse(responseCode = "404", description = "Currency not found",
                     content = @Content) })
-    @GetMapping("/currency")
-    public ResponseEntity<NBP> getAllMovies(@PathVariable String currency, @RequestParam(defaultValue = "1") String daysStart, String daysEnd) {
-        return nbpService.getCurrencyRates("A", currency, daysStart, daysEnd);
+    @GetMapping("/{currency}/{dateStart}/{dateEnd}")
+    public ResponseEntity<NBP> getAllMovies(@PathVariable String currency, @PathVariable String dateStart, @PathVariable String dateEnd) {
+        return nbpService.getCurrencyRates("A", currency, dateStart, dateEnd);
     }
 
 }

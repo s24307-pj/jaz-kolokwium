@@ -20,8 +20,7 @@ public class NBPService {
     }
 
     public ResponseEntity<NBP> getCurrencyRates(String table, String code, String daysStart, String daysEnd) {
-        SimpleDateFormat DateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String url = "http://api.nbp.pl/api/exchangerates/rates/" + table + "/" + code + "/" + DateFormat.format(daysStart) + "/" + DateFormat.format(daysEnd);
+        String url = "http://api.nbp.pl/api/exchangerates/rates/" + table + "/" + code + "/" + daysStart + "/" + daysEnd + "/";
         try {
             NBP nbp = restTemplate.getForObject(url, NBP.class);
             if (nbp != null) {
