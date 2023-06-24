@@ -1,7 +1,7 @@
 package pl.pjatk.jazs24307nbp.Assets;
 
 public class NBP {
-    private long id;
+    private String table;
     private String code;
 
     private long days;
@@ -9,18 +9,18 @@ public class NBP {
     public NBP() {
     }
 
-    public NBP(long id, String code, long days) {
-        this.id = id;
+    public NBP(String table, String code, long days) {
+        this.table = table;
         this.code = code;
         this.days = days;
     }
 
-    public long getId() {
-        return id;
+    public String getTable() {
+        return table;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setTable(String table) {
+        this.table = table;
     }
 
     public String getCode() {
